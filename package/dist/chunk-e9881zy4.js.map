@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": ["../src/commands/serve/list-screens/handler.ts"],
+  "sourcesContent": [
+    "import type { Stitch } from '@google/stitch-sdk';\nimport pLimit from 'p-limit';\nimport type { ListScreensSpec, ListScreensInput, ListScreensResult } from './spec.js';\n\nexport class ListScreensHandler implements ListScreensSpec {\n  constructor(private readonly client: Stitch) {}\n\n  async execute(input: ListScreensInput): Promise<ListScreensResult> {\n    try {\n      const project = this.client.project(input.projectId);\n      const sdkScreens = await project.screens();\n\n      const limit = pLimit(3);\n      const screens = await Promise.all(\n        sdkScreens.map((s: any) => limit(async () => {\n          const htmlUrl = await s.getHtml().catch(() => null);\n          return {\n            screenId: s.screenId,\n            title: s.title ?? s.screenId,\n            path: `/screens/${s.screenId}`,\n            hasHtml: htmlUrl !== null,\n          };\n        }))\n      );\n\n      return { success: true, projectId: input.projectId, screens };\n    } catch (e: any) {\n      return {\n        success: false,\n        error: { code: 'SCREENS_FETCH_FAILED', message: e.message, recoverable: false },\n      };\n    }\n  }\n}\n"
+  ],
+  "mappings": ";;;;;;AAIO,MAAM,mBAA8C;AAAA,EAC5B;AAAA,EAA7B,WAAW,CAAkB,QAAgB;AAAA,IAAhB;AAAA;AAAA,OAEvB,QAAO,CAAC,OAAqD;AAAA,IACjE,IAAI;AAAA,MACF,MAAM,UAAU,KAAK,OAAO,QAAQ,MAAM,SAAS;AAAA,MACnD,MAAM,aAAa,MAAM,QAAQ,QAAQ;AAAA,MAEzC,MAAM,QAAQ,OAAO,CAAC;AAAA,MACtB,MAAM,UAAU,MAAM,QAAQ,IAC5B,WAAW,IAAI,CAAC,MAAW,MAAM,YAAY;AAAA,QAC3C,MAAM,UAAU,MAAM,EAAE,QAAQ,EAAE,MAAM,MAAM,IAAI;AAAA,QAClD,OAAO;AAAA,UACL,UAAU,EAAE;AAAA,UACZ,OAAO,EAAE,SAAS,EAAE;AAAA,UACpB,MAAM,YAAY,EAAE;AAAA,UACpB,SAAS,YAAY;AAAA,QACvB;AAAA,OACD,CAAC,CACJ;AAAA,MAEA,OAAO,EAAE,SAAS,MAAM,WAAW,MAAM,WAAW,QAAQ;AAAA,MAC5D,OAAO,GAAQ;AAAA,MACf,OAAO;AAAA,QACL,SAAS;AAAA,QACT,OAAO,EAAE,MAAM,wBAAwB,SAAS,EAAE,SAAS,aAAa,MAAM;AAAA,MAChF;AAAA;AAAA;AAGN;",
+  "debugId": "2AE76803A4316C1D64756E2164756E21",
+  "names": []
+}

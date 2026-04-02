@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": ["../src/commands/site/utils/fetchWithRetry.ts"],
+  "sourcesContent": [
+    "/**\n * Fetches text content from a URL with exponential backoff retry on 429 (Too Many Requests).\n * Non-429 errors are thrown immediately without retrying.\n *\n * @param url - The URL to fetch\n * @param maxRetries - Maximum number of retries (default: 4, so 5 total attempts)\n * @param maxBackoffMs - Maximum backoff delay in ms (default: 8000)\n * @returns The response body as text\n */\nexport async function fetchWithRetry(\n  url: string,\n  maxRetries = 4,\n  maxBackoffMs = 8000,\n): Promise<string> {\n  for (let attempt = 0; attempt <= maxRetries; attempt++) {\n    const response = await fetch(url);\n\n    if (response.ok) {\n      return await response.text();\n    }\n\n    if (response.status === 429 && attempt < maxRetries) {\n      const backoff = Math.min(1000 * 2 ** attempt, maxBackoffMs);\n      await new Promise(r => setTimeout(r, backoff));\n      continue;\n    }\n\n    throw new Error(`Failed to fetch content: ${response.statusText}`);\n  }\n\n  throw new Error(`Failed to fetch content after ${maxRetries + 1} attempts`);\n}\n"
+  ],
+  "mappings": ";AASA,eAAsB,cAAc,CAClC,KACA,aAAa,GACb,eAAe,MACE;AAAA,EACjB,SAAS,UAAU,EAAG,WAAW,YAAY,WAAW;AAAA,IACtD,MAAM,WAAW,MAAM,MAAM,GAAG;AAAA,IAEhC,IAAI,SAAS,IAAI;AAAA,MACf,OAAO,MAAM,SAAS,KAAK;AAAA,IAC7B;AAAA,IAEA,IAAI,SAAS,WAAW,OAAO,UAAU,YAAY;AAAA,MACnD,MAAM,UAAU,KAAK,IAAI,OAAO,KAAK,SAAS,YAAY;AAAA,MAC1D,MAAM,IAAI,QAAQ,OAAK,WAAW,GAAG,OAAO,CAAC;AAAA,MAC7C;AAAA,IACF;AAAA,IAEA,MAAM,IAAI,MAAM,4BAA4B,SAAS,YAAY;AAAA,EACnE;AAAA,EAEA,MAAM,IAAI,MAAM,iCAAiC,aAAa,YAAY;AAAA;",
+  "debugId": "F07D33AA3782D0A764756E2164756E21",
+  "names": []
+}

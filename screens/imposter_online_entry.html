@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#a33d1b",
+              "surface-container-highest": "#e7e2d7",
+              "inverse-on-surface": "#f5f0e5",
+              "inverse-primary": "#ffb59e",
+              "primary": "#a03b18",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#83d8ab",
+              "on-tertiary-container": "#fffbff",
+              "tertiary-fixed-dim": "#ffb4a9",
+              "on-tertiary-fixed": "#410001",
+              "surface-container-low": "#f8f3e8",
+              "outline-variant": "#dec0b8",
+              "primary-container": "#c1532e",
+              "outline": "#8a726a",
+              "surface-dim": "#dedacf",
+              "surface-container-high": "#ede8dd",
+              "on-secondary": "#ffffff",
+              "surface": "#fef9ee",
+              "on-secondary-fixed-variant": "#005235",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "inverse-surface": "#323029",
+              "tertiary": "#a1392e",
+              "secondary-fixed": "#9ff4c6",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#002113",
+              "on-primary-fixed-variant": "#832604",
+              "on-background": "#1d1c15",
+              "primary-fixed": "#ffdbd0",
+              "on-primary-fixed": "#3a0b00",
+              "background": "#fef9ee",
+              "surface-container": "#f2ede2",
+              "on-error-container": "#93000a",
+              "on-primary-container": "#fffbff",
+              "on-surface": "#1d1c15",
+              "primary-fixed-dim": "#ffb59e",
+              "on-secondary-container": "#13704c",
+              "secondary": "#096c48",
+              "secondary-container": "#9cf1c3",
+              "surface-bright": "#fef9ee",
+              "tertiary-container": "#c15043",
+              "tertiary-fixed": "#ffdad5",
+              "surface-variant": "#e7e2d7",
+              "on-tertiary-fixed-variant": "#84241b",
+              "on-surface-variant": "#57423c",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 252, 245, 0.88);
+            backdrop-filter: blur(12px);
+        }
+        .bg-parchment-gradient {
+            background: radial-gradient(circle at center, #fef9ee 0%, #f2ede2 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<header class="fixed top-0 w-full z-50 bg-[#fffcf5]/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(76,43,24,0.12)] flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-2 ring-primary/20">
+<img class="w-full h-full object-cover" data-alt="User portrait on parchment showing a mysterious character in elegant 19th century attire with warm sepia ink textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoIsR_QzDlUzph4GEushN7QZQXb1ryLKJ8AsEj52W_8cfqC7xHF3Qcv0Gh69VrKQM2rmFUYQeVem6Bfc_RUJm4VY9em8xhgF-_qx1wVT19wqdDPB3vld5QPqqUb_vw5j-WgSXF-oSFvBT1FLtFUobmfe1t-YO9JlOFJAzADK8BDW3yD8qYOmMpbN9f2hmBm3DbHE6iwmUYQX98a0xnNglIr8pyTw2qLQrQDMQQoCN_92AnFaUZwAOzZWlxqG54d91C2sNEycfKYFE"/>
+</div>
+<span class="font-headline tracking-tighter uppercase font-bold text-2xl font-black text-[#cc5b36] tracking-tighter">IMPOSTER</span>
+</div>
+<button class="text-stone-500 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="pt-32 pb-40 px-6 max-w-7xl mx-auto min-h-screen bg-parchment-gradient">
+<div class="flex flex-col md:flex-row gap-8 lg:gap-16 items-stretch">
+<section class="flex-1 glass-panel rounded-xl p-8 lg:p-12 shadow-[0_20px_50px_rgba(76,43,24,0.08)] relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary/40"></div>
+<h2 class="font-headline text-4xl font-black text-on-surface mb-10 tracking-tight">Create Room</h2>
+<div class="space-y-10">
+<div class="space-y-4">
+<label class="block font-headline font-bold text-on-surface-variant text-sm tracking-widest uppercase">Your identity</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border-none rounded-lg px-6 py-5 text-lg font-medium placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Your name" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline" data-icon="edit_note">edit_note</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold py-5 rounded-full text-lg shadow-lg hover:shadow-xl active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                            Continue
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full border-2 border-outline-variant/15 text-primary font-headline font-bold py-5 rounded-full text-lg hover:bg-surface-container-low transition-colors">
+                            Back
+                        </button>
+</div>
+</div>
+<div class="mt-12 p-6 rounded-lg bg-surface-container-low/50">
+<p class="text-on-surface-variant text-sm leading-relaxed italic">
+                        "The heavy scent of cedar and old paper fills the air. Are you ready to host the evening's deception?"
+                    </p>
+</div>
+</section>
+<div class="hidden lg:flex flex-col justify-center items-center opacity-20">
+<div class="w-px h-32 bg-outline-variant"></div>
+<span class="my-4 font-headline font-black text-2xl">OR</span>
+<div class="w-px h-32 bg-outline-variant"></div>
+</div>
+<section class="flex-1 bg-surface-container-low rounded-xl p-8 lg:p-12 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary/30"></div>
+<h2 class="font-headline text-4xl font-black text-on-surface mb-10 tracking-tight">Join Room</h2>
+<div class="space-y-10">
+<div class="space-y-8">
+<div class="space-y-4">
+<label class="block font-headline font-bold text-on-surface-variant text-sm tracking-widest uppercase">Your identity</label>
+<input class="w-full bg-surface-container-highest/50 border-none rounded-lg px-6 py-5 text-lg font-medium placeholder:text-outline focus:ring-2 focus:ring-secondary/20 transition-all outline-none" placeholder="Your name" type="text"/>
+</div>
+<div class="space-y-4">
+<label class="block font-headline font-bold text-on-surface-variant text-sm tracking-widest uppercase">Secret Key</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest/50 border-none rounded-lg px-6 py-5 text-3xl font-black tracking-[0.5em] placeholder:text-outline/30 focus:ring-2 focus:ring-secondary/20 transition-all outline-none uppercase text-center" placeholder="ABC123" type="text"/>
+</div>
+<p class="text-xs text-outline text-center font-medium">Enter the 6-digit code shared by the host</p>
+</div>
+</div>
+<button class="w-full border-2 border-primary text-primary font-headline font-bold py-5 rounded-full text-lg hover:bg-primary hover:text-on-primary active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+                        Join Room
+                    </button>
+</div>
+<div class="mt-12 grid grid-cols-3 gap-2 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700">
+<div class="h-24 rounded-lg bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro photo of a vintage wax seal on aged paper with burnt orange wax and intricate crest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFN5mYm51uWX6wnv-dba_n54HrC1FuspDeU3paUEhss-xsnEWltq2jIKBhOjXivu9KQhM5lC8Xde1EPZklIcClRkkAevbXBZWPsN4E-b-JQfky1zYdR7KM0-PFOiEJUMZ3MzR5CaB68zRCataC1Mus3CLznFr_WZpQkgmgM20j8mp97f14sVczYmcuh1nyV0YvFJehhZclBuwCFR_-ZlG1wtA7-lvL9LmrCxGw5lSwnJh2uhu87UM5tnPhTPEmnBigTUCZ4Y4pP6I"/>
+</div>
+<div class="h-24 rounded-lg bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a classic fountain pen nib writing on textured parchment with elegant ink splatters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGSYGg8fdiOkMAXf6MzMpgC2BNvLDl5_yLB5KoS8iZKLrIcEq0TYcu1eTNLKVGy8_KyJlrabYwDcrSQI0npUQ8DPZ-WMzEseE0iU7PeWg78wR9x_gHBq2QXtIvDJq_mX0-Y6jzWKNvC_JmZiGdGlYf7HbMRETVRE0oHQz1z4fWmLsU-V52VhO9-j3dvTXYoI71EElmGtw0f7df37n4JTMhHHX8UMD2-SIkiic8uKvqOlowFhVbnZlhOQlzre69_QRbnFqVWyt9V1c"/>
+</div>
+<div class="h-24 rounded-lg bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An ancient brass key lying on a dark rustic wooden table with long dramatic shadows and warm candle lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFdPfGV-IOX1rH0w3UPo0Ie9dg_mY8AqGUNg7EIU_3e29_XTaGvcIFDTuZS2sAedPE0NRDs1OqJZzsjHHkGSlw904JY0c-uVOR3SZGq0d-TYoNEBXYVS8emhKq88unjqbhtgoVzQ9VZV1SvCW3XgTBY8sLA8p7zTT-n1xO-ZlWJhzHTIFgod0hJO6H4g3-TRUKOZDsukX3VO1HKYta8UdSZOmoUN-H4xixshEKxmk3ZYUTLaeuvAKPss1JbKJUS3vIvHfmNK4k588"/>
+</div>
+</div>
+</section>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full h-24 flex justify-around items-center px-8 pb-4 bg-[#fffcf5]/88 dark:bg-stone-900/88 backdrop-blur-xl shadow-[0_-10px_40px_rgba(76,43,24,0.08)] rounded-t-[3rem] z-50">
+<a class="flex flex-col items-center justify-center text-stone-500 opacity-60 hover:text-[#cc5b36] hover:opacity-100 transition-all scale-105 active:scale-98" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-manrope text-xs font-semibold tracking-wide">Home</span>
+</a>
+<div class="flex flex-col items-center justify-center bg-gradient-to-br from-[#a03b18] to-[#c1532e] text-white rounded-full px-6 py-2 shadow-lg scale-105 active:scale-98 transition-all duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="settings_suggest">settings_suggest</span>
+<span class="font-manrope text-xs font-semibold tracking-wide">Setup</span>
+</div>
+<a class="flex flex-col items-center justify-center text-stone-500 opacity-60 hover:text-[#cc5b36] hover:opacity-100 transition-all scale-105 active:scale-98" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="groups">groups</span>
+<span class="font-manrope text-xs font-semibold tracking-wide">Lobby</span>
+</a>
+</nav>
+</body></html>

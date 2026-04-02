@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": ["../src/commands/serve/handler.ts"],
+  "sourcesContent": [
+    "import type { Stitch } from '@google/stitch-sdk';\nimport pLimit from 'p-limit';\nimport type { ServeSpec, ServeResult } from './spec.js';\n\nexport class ServeHandler implements ServeSpec {\n  constructor(private readonly stitch: Stitch) {}\n\n  async execute(projectId: string): Promise<ServeResult> {\n    try {\n      const project = this.stitch.project(projectId);\n      const screens = await project.screens();\n\n      const limit = pLimit(3);\n      const withHtml = await Promise.all(\n        screens.map((s: any) => limit(async () => {\n          const codeUrl = await s.getHtml().catch(() => null);\n          return { screenId: s.screenId, title: s.title ?? s.screenId, codeUrl };\n        }))\n      );\n\n      const filtered = withHtml\n        .filter(s => s.codeUrl !== null)\n        .sort((a, b) => a.title.localeCompare(b.title));\n\n      return {\n        success: true,\n        projectId,\n        projectTitle: project.data?.title ?? projectId,\n        screens: filtered,\n      };\n    } catch (e: any) {\n      return {\n        success: false,\n        error: { code: 'SCREENS_FETCH_FAILED', message: e.message, recoverable: false },\n      };\n    }\n  }\n}\n"
+  ],
+  "mappings": ";;;;;;AAIO,MAAM,aAAkC;AAAA,EAChB;AAAA,EAA7B,WAAW,CAAkB,QAAgB;AAAA,IAAhB;AAAA;AAAA,OAEvB,QAAO,CAAC,WAAyC;AAAA,IACrD,IAAI;AAAA,MACF,MAAM,UAAU,KAAK,OAAO,QAAQ,SAAS;AAAA,MAC7C,MAAM,UAAU,MAAM,QAAQ,QAAQ;AAAA,MAEtC,MAAM,QAAQ,OAAO,CAAC;AAAA,MACtB,MAAM,WAAW,MAAM,QAAQ,IAC7B,QAAQ,IAAI,CAAC,MAAW,MAAM,YAAY;AAAA,QACxC,MAAM,UAAU,MAAM,EAAE,QAAQ,EAAE,MAAM,MAAM,IAAI;AAAA,QAClD,OAAO,EAAE,UAAU,EAAE,UAAU,OAAO,EAAE,SAAS,EAAE,UAAU,QAAQ;AAAA,OACtE,CAAC,CACJ;AAAA,MAEA,MAAM,WAAW,SACd,OAAO,OAAK,EAAE,YAAY,IAAI,EAC9B,KAAK,CAAC,GAAG,MAAM,EAAE,MAAM,cAAc,EAAE,KAAK,CAAC;AAAA,MAEhD,OAAO;AAAA,QACL,SAAS;AAAA,QACT;AAAA,QACA,cAAc,QAAQ,MAAM,SAAS;AAAA,QACrC,SAAS;AAAA,MACX;AAAA,MACA,OAAO,GAAQ;AAAA,MACf,OAAO;AAAA,QACL,SAAS;AAAA,QACT,OAAO,EAAE,MAAM,wBAAwB,SAAS,EAAE,SAAS,aAAa,MAAM;AAAA,MAChF;AAAA;AAAA;AAGN;",
+  "debugId": "0608323AFA1B550164756E2164756E21",
+  "names": []
+}
