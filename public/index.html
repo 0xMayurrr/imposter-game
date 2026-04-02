@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imposter</title>
+  <style>
+    .ghost-button.active { background: var(--bad); border-color: var(--bad); color: white; }
+  </style>
+  <meta name="description" content="Imposter is a fast social deduction game for 2 to 20 players with offline and browser-connected modes." />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Social deduction game</p>
+        <h1>Imposter</h1>
+        <p class="hero-copy">
+          Run a quick round with local pass-and-play, or open the same room on multiple browsers
+          for a lightweight connected match.
+        </p>
+      </div>
+      <button id="resetAppButton" class="ghost-button">Reset App</button>
+    </header>
+
+    <main id="app" class="app"></main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
